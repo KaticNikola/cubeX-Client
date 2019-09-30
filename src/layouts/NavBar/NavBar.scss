@@ -1,0 +1,32 @@
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 0px 50px;
+  
+    &-brand {
+      &_logo {
+  
+        display: flex;
+        flex-direction: column;
+        
+      }
+    }
+  
+    &-meni {
+  
+    }
+  
+    &--item {
+        display: flex;
+        display: inline-block;
+        padding: 5px 25px;
+  
+      &_link {
+          text-decoration: none;
+          color:  rgba(28, 23, 78, 0.904);
+      }
+    }
+  }
+  

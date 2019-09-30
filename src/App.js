@@ -1,25 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+
+
+import NavBar from './layouts/NavBar/NavBar';
+//import LiveEdit from './live-edit/LiveEdit'
+import TemplateEdit from './live-edit/template-edit/TemplateEdit'
+
+
+import Homepage from './pages/homepage/Homepage'
+// import PageNotFound from './Pages/PageNotFound'
+import { Provider } from './live-edit/template-edit/templates - context/TemplateContext';
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider>
+      <BrowserRouter>
+        <div className="App">
+          <div className="navbar">
+            <NavBar />
+          </div>
+          <Switch>
+            <Route exact path='/' component={Homepage} />
+            {/* <Route exact path='/live-edit' component={LiveEdit} /> */}
+            <Route exact path='/live-edit/template-edit' component={TemplateEdit} />
+            {/* <Route exact path='/live-edit/test' component={Test} /> */}
+            {/* <Route component={PageNotFound} /> */}
+          </Switch>
+        </div>
+      </BrowserRouter>
+    </Provider>
+
+
   );
 }
 
