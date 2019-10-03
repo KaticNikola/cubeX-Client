@@ -3,9 +3,7 @@ import React from 'react';
 import { Consumer } from '../template-edit/templates - context/TemplateContext'
 
 //sredi importe
-import EditFormText from './EditFormText'
-
-import EditFormTest from './EditFormText'
+import EditFormText from './forms/EditFormText'
 
 import "./FormPicker.scss"
 
@@ -67,8 +65,6 @@ export class EditMode extends React.Component {
 						formTypeControler = 'text'
 					}
 
-
-
 					if (editMode === 'on' &&  selectedElement === '') {
 						return (
 							<div className="emptyForm">
@@ -82,8 +78,6 @@ export class EditMode extends React.Component {
 								<EditFormText
 									selectedElement={selectedElement}
 									elementToEdit={elementToEdit} />
-									<EditFormTest/>
-
 							</div>
 						)
 					}

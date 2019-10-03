@@ -1,0 +1,146 @@
+.formWrapper {
+  height: 96vh;
+  display: flex;
+  flex-direction: column;
+
+  &-header {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(0, 0, 0);
+    color: rgb(146, 143, 143);
+    flex: 0 1 auto;
+
+    &_content {
+      text-align: center;
+      width: 33.3%;
+      padding: 20px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgb(58, 58, 58);
+        color: rgb(173, 173, 173);
+      }
+     
+    }
+    &_style {
+      width: 33.3%;
+      padding: 20px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgb(58, 58, 58);
+        color: rgb(173, 173, 173);
+      }
+    }
+    &_advanced {
+      width: 33.3%;
+      padding: 20px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgb(58, 58, 58);
+        color: rgb(173, 173, 173);
+      }
+    }
+  }
+
+  .editOptions {
+    background-color: rgb(58, 58, 58);
+    color: rgb(173, 173, 173);
+    flex: 1 1 auto;
+
+    &-form {
+      &_content {
+        padding: 20px 50px;
+       
+        .content-field {
+          label {
+            display: block;
+            padding: 5px 0px;
+          }
+
+          textarea {
+            background-color: rgb(133, 133, 133);
+            border: none;
+            outline: none;
+            padding: 5px 20px;
+            width: 100%;
+            height: 150px;
+            // ne radi style za placeholder
+            &::placeholder {
+              color: rgb(255, 1, 1);
+            }
+          }
+        }
+      }
+      &_style {
+        padding: 50px;
+
+        .style-field {
+          label {
+            display: block;
+            padding: 5px 0px;
+          }
+
+          input {
+            background-color: rgb(133, 133, 133);
+            border: none;
+            outline: none;
+            padding: 5px 20px;
+            background: transparent;
+            color: rgb(255, 255, 255);
+            width: 100%;
+
+          }
+          // input[type='email']{
+          //   border: 1px solid orange
+          // }
+          select {
+           // width: 150px;
+            width: 100%;
+            background-color: rgb(133, 133, 133);
+            border: none;
+            outline: none;
+            padding: 10px 30px;
+          }
+        }
+      }
+    }
+  }
+
+  &-footer {
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex: 0 1 auto;
+    padding: 20px;
+
+    &_pc {
+      font-size: 20px;
+      color: rgb(173, 173, 173);
+      cursor: pointer;
+
+      &:hover {
+        color: rgb(255, 255, 255);
+      }
+    }
+    &_tablet {
+      margin: 0px 20px;
+      font-size: 20px;
+      color: rgb(173, 173, 173);
+      cursor: pointer;
+
+      &:hover {
+        color: rgb(255, 255, 255);
+      }
+    }
+    &_phone {
+      font-size: 20px;
+      color: rgb(173, 173, 173);
+      cursor: pointer;
+
+      &:hover {
+        color: rgb(255, 255, 255);
+      }
+    }
+  }
+}

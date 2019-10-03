@@ -16,18 +16,12 @@ import { Consumer } from './templates - context/TemplateContext'
 import "./TemplateEdit.scss"
 
 export class TemplateEdit extends Component {
-    // handleEditModeControler = (dispatch) => {
-    //     console.log('from template edit')
-    //     dispatch({
-    //         type: "EDITMODE_CONTROLER",
-    //         payload: 'on'
-    //     })
-    // }
+
     render() {
         return (
             <Consumer>
                 {value => {
-                    const { selectedElement, dispatch, editMode } = value;
+                    const { selectedElement, editMode } = value;
                     if (editMode === 'on') {
                         return (
                             <div className='templateEdit'>

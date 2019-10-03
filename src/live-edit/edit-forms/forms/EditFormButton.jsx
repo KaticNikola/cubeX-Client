@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Consumer } from '../template-edit/templates - context/TemplateContext'
+import { Consumer } from '../../template-edit/templates - context/TemplateContext'
 
 export class EditFormButton extends Component {
     handleSubmit = (e) => {
