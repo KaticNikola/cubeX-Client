@@ -20,7 +20,6 @@
         background-color: rgb(58, 58, 58);
         color: rgb(173, 173, 173);
       }
-     
     }
     &_style {
       width: 33.3%;
@@ -52,7 +51,7 @@
     &-form {
       &_content {
         padding: 20px 50px;
-       
+
         .content-field {
           label {
             display: block;
@@ -75,6 +74,12 @@
       }
       &_style {
         padding: 50px;
+        &-header{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          
+        }
 
         .style-field {
           label {
@@ -90,13 +95,12 @@
             background: transparent;
             color: rgb(255, 255, 255);
             width: 100%;
-
           }
           // input[type='email']{
           //   border: 1px solid orange
           // }
           select {
-           // width: 150px;
+            // width: 150px;
             width: 100%;
             background-color: rgb(133, 133, 133);
             border: none;
@@ -105,42 +109,99 @@
           }
         }
       }
+      &_advanced {
+        .form-advanced_props {
+          padding: 50px 10px;
+          display: grid;
+          grid-template-columns: repeat(6, 1fr);
+          grid-template-rows: repeat(6, 1fr);
+          grid-column-gap: 40px;
+          grid-row-gap: 10px;
+          text-align: center;
+          
+          .margin{
+            &-top{
+              grid-area: 1 / 1 / 2 / 7;
+              border:1px solid orangered
+            }
+            &-left{
+              grid-area: 2 / 6 / 6 / 7;
+              border:1px solid orangered 
+            }
+            &-bottom{
+              grid-area: 6 / 1 / 7 / 7;
+              border:1px solid orangered
+            }
+            &-right{
+              grid-area: 2 / 1 / 6 / 2;
+              border:1px solid orangered
+            }
+          }
+          .padding{
+            &-top{
+              grid-area: 2 / 2 / 3 / 6;
+              border:1px solid orangered
+            }
+            &-left{
+              grid-area: 3 / 5 / 5 / 6;
+              border:1px solid orangered 
+            }
+            &-bottom{
+              grid-area: 5 / 2 / 6 / 6;
+              border:1px solid orangered
+            }
+            &-right{
+              grid-area: 3 / 2 / 5 / 3;
+              border:1px solid orangered
+            }
+          }
+          .content{
+            grid-area: 3 / 3 / 5 / 5;
+            border:1px solid orangered
+          }
+        }
+      }
     }
+
+    
   }
 
   &-footer {
-    background-color: rgb(0, 0, 0);
-    display: flex;
-    flex: 0 1 auto;
-    padding: 20px;
+      background-color: rgb(0, 0, 0);
+      display: flex;
+      flex: 0 1 auto;
+      padding: 20px;
 
-    &_pc {
-      font-size: 20px;
-      color: rgb(173, 173, 173);
-      cursor: pointer;
+      
 
-      &:hover {
-        color: rgb(255, 255, 255);
+      &_pc {
+        font-size: 20px;
+        color: rgb(173, 173, 173);
+        cursor: pointer;
+    
+        &:hover {
+          color: rgb(255, 255, 255);
+        }
+      }
+      &_tablet {
+        margin: 0px 20px;
+        font-size: 20px;
+        color: rgb(173, 173, 173);
+        cursor: pointer;
+
+        &:hover {
+          color: rgb(255, 255, 255);
+        }
+      }
+      &_phone {
+        font-size: 20px;
+        color: rgb(173, 173, 173);
+        cursor: pointer;
+
+        &:hover {
+          color: rgb(255, 255, 255);
+        }
       }
     }
-    &_tablet {
-      margin: 0px 20px;
-      font-size: 20px;
-      color: rgb(173, 173, 173);
-      cursor: pointer;
 
-      &:hover {
-        color: rgb(255, 255, 255);
-      }
-    }
-    &_phone {
-      font-size: 20px;
-      color: rgb(173, 173, 173);
-      cursor: pointer;
-
-      &:hover {
-        color: rgb(255, 255, 255);
-      }
-    }
-  }
 }

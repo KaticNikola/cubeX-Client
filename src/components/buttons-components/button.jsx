@@ -2,6 +2,8 @@
 import React from 'react'
 
 const Button = ({
+    id, 
+    actionType,
     //bg styles
     background,
     border,
@@ -29,6 +31,7 @@ const Button = ({
     boxShadowVertical,
 
     //Hover
+    // hover:{ color: HC}
     hover
 
 
@@ -52,14 +55,11 @@ const Button = ({
         //box shadow
         boxShadow: `${boxShadowHorizontal} ${boxShadowVertical} ${boxShadowBlurRadius} ${boxShadowSpreadRadius} ${boxShadowColor}`,
 
-        // hover:{
-        //     color:"red"
-        // }
 
     }
-    
+
     return (
-        <button style={style} >{content}</button>
+        <button id={id} name={actionType} style={style} >{content}</button>
     )
 }
 

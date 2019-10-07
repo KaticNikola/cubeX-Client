@@ -4,6 +4,7 @@ import { Consumer } from '../template-edit/templates - context/TemplateContext'
 
 //sredi importe
 import EditFormText from './forms/EditFormText'
+import EditFormButton from './forms/EditFormButton'
 
 import "./FormPicker.scss"
 
@@ -63,8 +64,15 @@ export class EditMode extends React.Component {
 					else if (selectedElement === 'footerDescription') {
 						elementToEdit = value.footer.description;
 						formTypeControler = 'text'
+					}else if (selectedElement === 'headerBtnLeft') {
+						elementToEdit = value.header.buttonLeft;
+						formTypeControler = 'button'
 					}
-
+					else if (selectedElement === 'headerBtnRight') {
+						elementToEdit = value.header.buttonRight;
+						formTypeControler = 'button'
+					}
+					//render froms
 					if (editMode === 'on' &&  selectedElement === '') {
 						return (
 							<div className="emptyForm">
@@ -80,16 +88,15 @@ export class EditMode extends React.Component {
 									elementToEdit={elementToEdit} />
 							</div>
 						)
+					} else if (editMode === 'on' && formTypeControler === 'button') {
+						return (
+							<div className="editMode">
+								<EditFormButton
+									selectedElement={selectedElement}
+									elementToEdit={elementToEdit} />
+							</div>
+						)
 					}
-					// else if (editMode === 'on' && formTypeControler === 'button') {
-					// 	return (
-					// 		<div className="editMode">
-					// 			<EditFormButton
-					// 				selectedElement={selectedElement}
-					// 				elementToEdit={elementToEdit} />
-					// 		</div>
-					// 	)
-					// }
 
 
 				}}

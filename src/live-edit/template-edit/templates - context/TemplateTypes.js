@@ -3,6 +3,8 @@ export const EDITMODE_CONTROLER = 'EDITMODE_CONTROLER';
 
 export const EDIT_HEADER_TITILE = 'headerTitle';
 export const EDIT_HEADER_DESCRIPTION = 'headerDescription';
+export const EDIT_HEADER_BUTTON_LEFT = 'headerBtnLeft'
+export const EDIT_HEADER_BUTTON_RIGHT = 'headerBtnRight'
 
 export const EDIT_OFFERS_TITILE = 'offersrTitle';
 //export const EDIT_OFFERS_CARD_1 = 'offersrDescription';

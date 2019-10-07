@@ -6,7 +6,7 @@ import Icon from '../../../components/icon-components/Icon'
 
 import FormTextAreaField from '../../../components/form-inputs-components/FormTextAreaField'
 import FormInputField from '../../../components/form-inputs-components/FormInputFeld'
-//import FormSelectField from '../../../components/form-inputs-components/FormSelectField'
+import FormSelectField from '../../../components/form-inputs-components/FormSelectField'
 
 import './EditFormText.scss'
 
@@ -64,26 +64,20 @@ export class EditFormText extends Component {
 			}
 		})
 	}
-	// style = {
-	//     display: "block",
-	//     backgroundColor: "rgb(58, 58, 58)"
-	// }
+	handleClick = (dispatch, e) => {
+		let incrementor = null;
+
+
+	}
 	render() {
 		let { displayedElement } = this.state;
-		const options=[	
-			{value: '200', label: 200 },
-			{value: '300', label: 300 },
-			{value: '400', label: 400 },
-			{value: '500', label: 500 },
-			{value: '600', label: 600 },
-
-
-		]
 		return (
 			<Consumer>
 				{value => {
 					const { dispatch } = value;
-					const { content, fontSize, lineHeight, letterSpacing } = this.props.elementToEdit;
+					const { content, fontSize, lineHeight, letterSpacing,
+						marignTop, marignLeft, marignBottom, marignRight,
+						paddingTop, paddingLeft, paddingBottom, paddingRight } = this.props.elementToEdit;
 
 					return (
 						<div className="formWrapper">
@@ -109,7 +103,6 @@ export class EditFormText extends Component {
 								</div>
 							</div>
 
-
 							<div className="editOptions">
 								<form
 									onSubmit={this.handleSubmit} className="editOptions-form">
@@ -124,13 +117,12 @@ export class EditFormText extends Component {
 											cols='80'
 											value={content}
 											onChange={this.handleChange.bind(this, dispatch)}
-
-
 										/>
 									</div>
 
 									<div className="editOptions-form_style"
 										style={{ display: displayedElement === 'style' ? "block" : "none" }}>
+
 										<FormInputField
 											className='style-field'
 											label="Font Size"
@@ -140,71 +132,60 @@ export class EditFormText extends Component {
 											onChange={this.handleChange.bind(this, dispatch)}
 										/>
 
-										{/* <FormSelectField 
-										className='style-field'
-										label='Font Weight'
-										name='fontWeight'
-										onChange={this.handleChange.bind(this, dispatch)}
-									
-										/> */}
+										<FormSelectField
+											className='style-field'
+											label='Font Weight'
+											name='fontWeight'
+											onChange={this.handleChange.bind(this, dispatch)}
+											options={[
+												{ value: "100", label: 100 },
+												{ value: "300", label: 300 },
+												{ value: "400", label: 400 },
+												{ value: "500", label: 500 },
+												{ value: "600", label: 600 },
+												{ value: "700", label: 700 },
+												{ value: "800", label: 800 },
+												{ value: "900", label: 900 },
+											]} />
+										<FormSelectField
+											className='style-field'
+											label='Text Transform'
+											name='textTransform'
+											onChange={this.handleChange.bind(this, dispatch)}
+											options={[
+												{ value: "default", label: "Default" },
+												{ value: "uppercase", label: "Uppercase" },
+												{ value: "lowercase", label: "Lowercase" },
+												{ value: "capitalize", label: "Capitalize" },
+												{ value: "none", label: "None" },
+											]} />
 
+										<FormSelectField
+											className='style-field'
+											label=' Font Style '
+											name='fontSize'
+											onChange={this.handleChange.bind(this, dispatch)}
+											options={[
+												{ value: "default", label: "Default" },
+												{ value: "normal", label: "Normal" },
+												{ value: "italic", label: "Italic" },
+												{ value: "oblique", label: "Oblique" },
+												{ value: "none", label: "None" },
+											]} />
 
-
-
-
-										<div className="style-field">
-											<label htmlFor="fontSize">Font Weight</label>
-											<select
-												name="fontWeight"
-												onChange={this.handleChange.bind(this, dispatch)}>
-												<option value="200">200</option>
-												<option value="300">300</option>
-												<option value="400">400</option>
-												<option value="500">500</option>
-												<option value="600">600</option>
-												<option value="700">700</option>
-												<option value="800">800</option>
-												<option value="900">900</option>
-											</select>
-										</div>
-
-										<div className="style-field">
-											<label htmlFor="fontSize">Text Transform </label>
-											<select
-												name="textTransform"
-												onChange={this.handleChange.bind(this, dispatch)}>
-												<option value="default">Default</option>
-												<option value="uppercase">Uppercase</option>
-												<option value="lowercase">Lowercase</option>
-												<option value="capitalize">Capitalize</option>
-												<option value="none">None</option>
-											</select>
-										</div>
-
-										<div className="style-field">
-											<label htmlFor="fontSize"> Font Style </label>
-											<select
-												name="fontStyle"
-												onChange={this.handleChange.bind(this, dispatch)}>
-												<option value="default">Default</option>
-												<option value="normal">Normal</option>
-												<option value="italic">Italic</option>
-												<option value="oblique">Oblique</option>
-											</select>
-										</div>
-										<div className="style-field">
-											<label htmlFor="textDecoration">Text Decoration </label>
-											<select
-												name="textDecoration"
-												onChange={this.handleChange.bind(this, dispatch)}>
-												<option value="default">Default</option>
-												<option value="underline">Underline</option>
-												<option value="overline">Oveline</option>
-												<option value="line-through">Line Throuth</option>
-												<option value="underline overline">Underline Overline</option>
-												<option value="none">None</option>
-											</select>
-										</div>
+										<FormSelectField
+											className='style-field'
+											label='Text Decoration'
+											name='textDecoration'
+											onChange={this.handleChange.bind(this, dispatch)}
+											options={[
+												{ value: "default", label: "Default" },
+												{ value: "underline", label: "Underline" },
+												{ value: "overline", label: "Oveline" },
+												{ value: "line-through", label: "Line Throuth" },
+												{ value: "underline overline", label: "Underline Overline" },
+												{ value: "none", label: "None" },
+											]} />
 										<FormInputField
 											className='style-field'
 											label="Line Height"
@@ -241,9 +222,26 @@ export class EditFormText extends Component {
 										/>
 									</div>
 
-									<div
+									<div className="editOptions-form_advanced"
 										style={{ display: displayedElement === 'advanced' ? "block" : "none" }}
-										className="form-advanced">
+									>
+										<div className="form-advanced_props">
+											<div
+
+												className="margin-top"
+												onClick={this.handleClick.bind(this, dispatch)}
+											>{marignTop}</div>
+											<div className="margin-left">{marignLeft}</div>
+											<div className="margin-bottom">{marignBottom}</div>
+											<div className="margin-right">{marignRight}</div>
+											<div className="padding-top">{paddingTop}</div>
+											<div className="padding-left">{paddingLeft}</div>
+											<div className="padding-bottom">{paddingBottom}</div>
+											<div className="padding-right">{paddingRight}</div>
+											<div className="content">content</div>
+
+										</div>
+
 									</div>
 								</form>
 							</div>
@@ -266,6 +264,7 @@ export class EditFormText extends Component {
 									<Icon icon='fas fa-mobile-alt' />
 								</div>
 							</div>
+
 						</div>
 					)
 				}

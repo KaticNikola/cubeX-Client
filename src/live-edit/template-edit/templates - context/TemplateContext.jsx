@@ -2,47 +2,8 @@ import React from 'react';
 
 import reducer from './TemplatesReducers'
 
-// import {
-//     EDIT_HEADER_TITILE,
-//     EDIT_HEADER_DESCRIPTION,
-//     SELECTED_ELEMENT
-
-// } from './TemplateTypes';
 
 const Context = React.createContext();
-
-
-// const reducer = (state, action) => {
-//     switch (action.type) {
-//         case EDIT_HEADER_TITILE:
-//             return {
-//                 ...state.header.title,
-//                 title: [state.header.title].map(key => {
-//                     console.log(` from context ${action.payload}`)
-//                     key[`${action.payload.property}`] = action.payload.value
-//                     // console.log(key[`${action.payload.property}`])
-//                 })
-//             }
-//         case EDIT_HEADER_DESCRIPTION:
-//             return {
-//                 ...state.header.title,
-//                 title: [state.header.description].map(key => {
-//                     console.log(action.payload)
-//                     key[`${action.payload.property}`] = action.payload.value
-//                     // console.log(key[`${action.payload.property}`])
-//                 })
-//             }
-//         case SELECTED_ELEMENT:
-//             return {
-//                 ...state,
-//                 // selectionKey: state.selectionKey = action.payload.id,
-//                 selectedElement: state.selectedElement = action.payload.id
-//             }
-//         default:
-//             return state;
-//     }
-// }
-
 
 export class Provider extends React.Component {
     state = {
@@ -90,27 +51,37 @@ export class Provider extends React.Component {
                 textAlign: "",
                 textDecoration: "",
                 lineHeight: "",
+
                 //new
-                letterSpacing: ''
+                letterSpacing: '',
+                marignTop: '1',
+                marignLeft: '2',
+                marignBottom: '3',
+                marignRight: '4',
+                paddingTop: '5',
+                paddingLeft: '6',
+                paddingBottom: '7',
+                paddingRight: '8',
             },
             description: {
                 id: "headerDescription",
                 content: "Description of THe page Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum repellat autem voluptates et, enim numquam.Ipsum repellat autem voluptates et, enim numquam.",
-                // fontSize: '' + 'px',
-                // fontType: "",
-                // fontWeight: "",
-                // fontColor: "",
-                // textTransform: "",
-                // fontStyle: "",
-                // textAlign: "",
-                // textDecoration: "",
-                // lineHeight: "",
-                // letterSpacing:'',
+                fontSize: '' + 'px',
+                fontType: "",
+                fontWeight: "",
+                fontColor: "",
+                textTransform: "",
+                fontStyle: "",
+                textAlign: "",
+                textDecoration: "",
+                lineHeight: "",
+                letterSpacing:'',
 
 
             },
             buttonLeft: {
-
+                id:'headerBtnLeft',
+                actionType:'EDIT_HEADER_BUTTON_LEFT',
                 background: '',
                 border: '',
                 borderThickness: '',
@@ -146,7 +117,7 @@ export class Provider extends React.Component {
                     fontSize: '',
                     fontType: "",
                     fontWeight: "",
-                    color: "",
+                    color: "red",
                     textTransform: "",
                     fontStyle: "",
                     textAlign: "",
@@ -161,7 +132,8 @@ export class Provider extends React.Component {
 
             },
             buttonRight: {
-
+                id:'headerBtnRight',
+                actionType:'EDIT_HEADER_BUTTON_RIGHT',
                 background: '',
                 border: '',
                 borderThiknes: '',

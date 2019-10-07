@@ -15,13 +15,13 @@ import { SELECTED_ELEMENT } from '../../../templates - context/TemplateTypes'
 
 
 export class Header extends Component {
-	
+
 
 	handleSelectElement = (dispatch, e) => {
 		let id = e.target.id
 		let actionType = e.target.name
 		//
-		console.log(id)
+		console.log(`id${id}`)
 		console.log(actionType)
 		dispatch({
 			type: SELECTED_ELEMENT,
@@ -53,11 +53,13 @@ export class Header extends Component {
 										className="header-text_description">
 										<Description {...description} />
 									</div>
-									<div className="header-text_button">
+									<div className="header-text_button"
+										onClick={this.handleSelectElement.bind(this, dispatch)}>
 										<div className="btn-green">
 											<Button {...buttonLeft} />
 										</div>
-										<div className="btn-transparent">
+										<div className="btn-transparent"
+											onClick={this.handleSelectElement.bind(this, dispatch)}>
 											<Button {...buttonRight} />
 										</div>
 
