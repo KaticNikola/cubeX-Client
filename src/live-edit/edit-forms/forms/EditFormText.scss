@@ -31,6 +31,7 @@
         color: rgb(173, 173, 173);
       }
     }
+
     &_advanced {
       width: 33.3%;
       padding: 20px;
@@ -74,13 +75,30 @@
       }
       &_style {
         padding: 50px;
-        &-header{
+
+        //btn
+        &-header {
+          margin-top: -25px;
           display: flex;
           flex-direction: row;
-          justify-content: space-between;
-          
+          justify-content: center;
+
+          .normal {
+            cursor: pointer;
+            padding: 0px 20px;
+            border-right: 1px solid rgb(0, 0, 0);
+            border-bottom: 1px solid rgb(0, 0, 0);
+          }
+          .hover {
+            cursor: pointer;
+            padding: 0px 20px;
+            border-left: 1px solid rgb(0, 0, 0);
+            border-bottom: 1px solid rgb(0, 0, 0);
+            
+          }
         }
 
+        //all 
         .style-field {
           label {
             display: block;
@@ -88,17 +106,21 @@
           }
 
           input {
-            background-color: rgb(133, 133, 133);
             border: none;
             outline: none;
-            padding: 5px 20px;
+            padding: 0px 20px;
             background: transparent;
             color: rgb(255, 255, 255);
             width: 100%;
           }
-          // input[type='email']{
-          //   border: 1px solid orange
-          // }
+          input[type=text]{
+            background-color: rgb(133, 133, 133);
+            // border: none;
+            // outline: none;
+            padding: 10px 20px;
+            // color: rgb(255, 255, 255);
+            // width: 100%;
+          }
           select {
             // width: 150px;
             width: 100%;
@@ -108,7 +130,16 @@
             padding: 10px 30px;
           }
         }
+        //btn
+        &--normal{
+         
+        }
+        &--hover{
+
+        }
+
       }
+
       &_advanced {
         .form-advanced_props {
           padding: 50px 10px;
@@ -118,90 +149,85 @@
           grid-column-gap: 40px;
           grid-row-gap: 10px;
           text-align: center;
-          
-          .margin{
-            &-top{
+
+          .margin {
+            &-top {
               grid-area: 1 / 1 / 2 / 7;
-              border:1px solid orangered
+              border: 1px solid orangered;
             }
-            &-left{
+            &-left {
               grid-area: 2 / 6 / 6 / 7;
-              border:1px solid orangered 
+              border: 1px solid orangered;
             }
-            &-bottom{
+            &-bottom {
               grid-area: 6 / 1 / 7 / 7;
-              border:1px solid orangered
+              border: 1px solid orangered;
             }
-            &-right{
+            &-right {
               grid-area: 2 / 1 / 6 / 2;
-              border:1px solid orangered
+              border: 1px solid orangered;
             }
           }
-          .padding{
-            &-top{
+          .padding {
+            &-top {
               grid-area: 2 / 2 / 3 / 6;
-              border:1px solid orangered
+              border: 1px solid orangered;
             }
-            &-left{
+            &-left {
               grid-area: 3 / 5 / 5 / 6;
-              border:1px solid orangered 
+              border: 1px solid orangered;
             }
-            &-bottom{
+            &-bottom {
               grid-area: 5 / 2 / 6 / 6;
-              border:1px solid orangered
+              border: 1px solid orangered;
             }
-            &-right{
+            &-right {
               grid-area: 3 / 2 / 5 / 3;
-              border:1px solid orangered
+              border: 1px solid orangered;
             }
           }
-          .content{
+          .content {
             grid-area: 3 / 3 / 5 / 5;
-            border:1px solid orangered
+            border: 1px solid orangered;
           }
         }
       }
     }
-
-    
   }
 
   &-footer {
-      background-color: rgb(0, 0, 0);
-      display: flex;
-      flex: 0 1 auto;
-      padding: 20px;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex: 0 1 auto;
+    padding: 20px;
 
-      
+    &_pc {
+      font-size: 20px;
+      color: rgb(173, 173, 173);
+      cursor: pointer;
 
-      &_pc {
-        font-size: 20px;
-        color: rgb(173, 173, 173);
-        cursor: pointer;
-    
-        &:hover {
-          color: rgb(255, 255, 255);
-        }
-      }
-      &_tablet {
-        margin: 0px 20px;
-        font-size: 20px;
-        color: rgb(173, 173, 173);
-        cursor: pointer;
-
-        &:hover {
-          color: rgb(255, 255, 255);
-        }
-      }
-      &_phone {
-        font-size: 20px;
-        color: rgb(173, 173, 173);
-        cursor: pointer;
-
-        &:hover {
-          color: rgb(255, 255, 255);
-        }
+      &:hover {
+        color: rgb(255, 255, 255);
       }
     }
+    &_tablet {
+      margin: 0px 20px;
+      font-size: 20px;
+      color: rgb(173, 173, 173);
+      cursor: pointer;
 
+      &:hover {
+        color: rgb(255, 255, 255);
+      }
+    }
+    &_phone {
+      font-size: 20px;
+      color: rgb(173, 173, 173);
+      cursor: pointer;
+
+      &:hover {
+        color: rgb(255, 255, 255);
+      }
+    }
+  }
 }

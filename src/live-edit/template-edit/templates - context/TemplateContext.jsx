@@ -33,12 +33,6 @@ export class Provider extends React.Component {
                 backgroundColor: '',
             },
             title: {
-                // selectionKey: 'header.title',
-                // selectionKey: {
-                //     id:'header.title',
-                //     type: 'text',
-                //     actionType:'EDIT_HEADER_TITILE'
-                // },
                 id: 'headerTitle',
                 actionType:'EDIT_HEADER_TITILE',
                 content: "Main titile2",
@@ -106,7 +100,7 @@ export class Provider extends React.Component {
                 boxShadowVertical: '10px',
 
                 hover: {
-                    background: '',
+                    background: 'red',
                     border: '',
                     borderThiknes: '',
                     borderType: '',
@@ -114,7 +108,7 @@ export class Provider extends React.Component {
                     borderRadius: '',
 
                     content: "Button Left hover",
-                    fontSize: '',
+                    fontSize: '50px',
                     fontType: "",
                     fontWeight: "",
                     color: "red",

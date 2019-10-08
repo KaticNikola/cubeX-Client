@@ -32,26 +32,34 @@ export class EditFormButton extends Component {
 			this.setState({
 				displayedElement: 'advanced'
 			})
-		} else {
+		} else if(e.target.className === 'content') {
 			this.setState({
 				displayedElement: 'content'
 			})
 		}
 	}
+
 	handleBtnState = (e) => {
 
 		console.log(e.target.className)
-		// let displayedElement = '';
+		let displayedElement = '';
 		if (e.target.className === 'hover') {
-			this.setState({
-				btnState: 'hover'
-			})
+			displayedElement = 'hover'
+			// this.setState({
+			// 	btnState: 'hover'
+			// })
 			//console.log(displayedElement)
-		} else {
-			this.setState({
-				btnState: 'normal'
-			})
+		} else if(e.target.className === 'normal') {
+			displayedElement = 'normal'
+			// this.setState({
+			// 	btnState: 'normal'
+			// })
 		}
+		console.log(displayedElement)
+		this.setState({
+				btnState: displayedElement
+			})
+		
 	}
 
 
@@ -111,7 +119,7 @@ export class EditFormButton extends Component {
 					return (
 						<div className="formWrapper">
 							<div className="formWrapper-header">
-								<div onClick={this.handleChageGroup.bind(displayedElement)}
+								<div onClick={this.handleChageGroup}
 									className="formWrapper-header_content"
 									style={{ backgroundColor: displayedElement === 'content' ? "rgb(58, 58, 58)" : " rgb(0, 0, 0)" }}>
 
@@ -154,18 +162,19 @@ export class EditFormButton extends Component {
 
 											<div className="normal"
 												onClick={this.handleBtnState.bind(btnState)}>
-												<h2>Normal</h2>
+												Normal
 											</div>
 
 											<div className="hover"
 												onClick={this.handleBtnState.bind(btnState)}>
-												<h2>hover</h2>
+												hover
 											</div>
 
 										</div>
 
 										<div className="editOptions-form_style--normal"
 											style={{ display: btnState === 'normal' ? "block" : "none" }}>
+
 											{/* bg /border  */}
 											<FormInputField
 												className='style-field'
@@ -179,7 +188,7 @@ export class EditFormButton extends Component {
 												label="Border Thiknes"
 												type="text"
 												name='borderThiknes'
-												value={borderThiknes === '' ? '50px' : borderThiknes}
+												value={borderThiknes}
 												onChange={this.handleChange.bind(this, dispatch)}
 											/>
 											<FormSelectField
@@ -223,15 +232,83 @@ export class EditFormButton extends Component {
 
 
 											{/* fonts   */}
+											<FormInputField
+												className='style-field'
+												label="Font Size"
+												type="text"
+												name='fontSize'
+												value={fontSize}
+												onChange={this.handleChange.bind(this, dispatch)}
+											/>
+											<FormSelectField
+												className='style-field'
+												label='Font Weight'
+												name='fontWeight'
+												onChange={this.handleChange.bind(this, dispatch)}
+												options={[
+													{ value: "100", label: 100 },
+													{ value: "300", label: 300 },
+													{ value: "400", label: 400 },
+													{ value: "500", label: 500 },
+													{ value: "600", label: 600 },
+													{ value: "700", label: 700 },
+													{ value: "800", label: 800 },
+													{ value: "900", label: 900 },
+												]} />
+											<FormSelectField
+												className='style-field'
+												label='Text Transform'
+												name='textTransform'
+												onChange={this.handleChange.bind(this, dispatch)}
+												options={[
+													{ value: "default", label: "Default" },
+													{ value: "uppercase", label: "Uppercase" },
+													{ value: "lowercase", label: "Lowercase" },
+													{ value: "capitalize", label: "Capitalize" },
+													{ value: "none", label: "None" },
+												]} />
 
-											
+											<FormSelectField
+												className='style-field'
+												label=' Font Style '
+												name='fontSize'
+												onChange={this.handleChange.bind(this, dispatch)}
+												options={[
+													{ value: "default", label: "Default" },
+													{ value: "normal", label: "Normal" },
+													{ value: "italic", label: "Italic" },
+													{ value: "oblique", label: "Oblique" },
+													{ value: "none", label: "None" },
+												]} />
 
+											<FormSelectField
+												className='style-field'
+												label='Text Decoration'
+												name='textDecoration'
+												onChange={this.handleChange.bind(this, dispatch)}
+												options={[
+													{ value: "default", label: "Default" },
+													{ value: "underline", label: "Underline" },
+													{ value: "overline", label: "Oveline" },
+													{ value: "line-through", label: "Line Throuth" },
+													{ value: "underline overline", label: "Underline Overline" },
+													{ value: "none", label: "None" },
+												]} />
+											<FormInputField
+												className='style-field'
+												label="Font Color"
+												type="color"
+												name='color'
+												onChange={this.handleChange.bind(this, dispatch)}
+											/>
 										</div>
+
 										<div className="editOptions-form_style--hover"
 											style={{ display: btnState === 'hover' ? "block" : "none" }}>
-											forma za hover state
+												hover
+												
 
-                      </div>
+										</div>
 
 
 

@@ -32,7 +32,7 @@ const Button = ({
 
     //Hover
     // hover:{ color: HC}
-    hover
+    ...hover
 
 
 }) => {
@@ -41,8 +41,10 @@ const Button = ({
         background,
         //border
         // border,
-        border: `${borderThiknes} ${borderType} ${borderColor}`,
-        borderRadius,
+        borderWidth: borderThiknes,
+        borderColor,
+
+        borderRadius: `${borderRadius}px`,
         //fonts and content
         fontSize,
         fontType: fontType,
@@ -54,6 +56,10 @@ const Button = ({
         textDecoration: textDecoration,
         //box shadow
         boxShadow: `${boxShadowHorizontal} ${boxShadowVertical} ${boxShadowBlurRadius} ${boxShadowSpreadRadius} ${boxShadowColor}`,
+
+        ":hover":{
+            color: "red"
+        }
 
 
     }
