@@ -23,16 +23,16 @@ export class EditFormButton extends Component {
 
 		console.log(e.target.className)
 		// let displayedElement = '';
-		if (e.target.className === 'style') {
+		if (e.target.className === 'formWrapper-header_content') {
 			this.setState({
 				displayedElement: 'style'
 			})
 			//console.log(displayedElement)
-		} else if (e.target.className === 'advanced') {
+		} else if (e.target.className === 'formWrapper-header_style') {
 			this.setState({
 				displayedElement: 'advanced'
 			})
-		} else if(e.target.className === 'content') {
+		} else if(e.target.className === 'formWrapper-header_advanced') {
 			this.setState({
 				displayedElement: 'content'
 			})
@@ -129,8 +129,9 @@ export class EditFormButton extends Component {
 								<div onClick={this.handleChageGroup}
 									className="formWrapper-header_style"
 									style={{ backgroundColor: displayedElement === 'style' ? "rgb(58, 58, 58)" : " rgb(0, 0, 0)" }}>
-
+										
 									<h4 className="style">Style</h4>
+
 								</div>
 								<div onClick={this.handleChageGroup}
 									className="formWrapper-header_advanced"
