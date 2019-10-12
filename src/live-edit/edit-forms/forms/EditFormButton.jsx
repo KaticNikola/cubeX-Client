@@ -1,346 +1,108 @@
-import React, { Component } from 'react'
-import { Consumer } from '../../template-edit/templates - context/TemplateContext'
-
-import Icon from '../../../components/icon-components/Icon'
-
-
-import FormTextAreaField from '../../../components/form-inputs-components/FormTextAreaField'
-import FormInputField from '../../../components/form-inputs-components/FormInputFeld'
-import FormSelectField from '../../../components/form-inputs-components/FormSelectField'
+import React from 'react';
+import PropTypes from 'prop-types';
+import SwipeableViews from 'react-swipeable-views';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 
 import './EditFormText.scss'
 
-export class EditFormButton extends Component {
-	state = {
-		displayedElement: '',
-		btnState: ''
-	}
-	handleSubmit = (e) => {
-		e.preventDefault()
-	}
+function TabPanel(props) {
+	const { children, value, index, ...other } = props;
 
-	handleChageGroup = (e) => {
+	return (
+		<Typography
+			component="div"
+			role="tabpanel"
+			hidden={value !== index}
+			id={`full-width-tabpanel-${index}`}
+			aria-labelledby={`full-width-tab-${index}`}
+			{...other}
+		>
+			<Box p={3}>{children}</Box>
+		</Typography>
+	);
+}
 
-		console.log(e.target.className)
-		// let displayedElement = '';
-		if (e.target.className === 'formWrapper-header_content') {
-			this.setState({
-				displayedElement: 'style'
-			})
-			//console.log(displayedElement)
-		} else if (e.target.className === 'formWrapper-header_style') {
-			this.setState({
-				displayedElement: 'advanced'
-			})
-		} else if(e.target.className === 'formWrapper-header_advanced') {
-			this.setState({
-				displayedElement: 'content'
-			})
-		}
-	}
+TabPanel.propTypes = {
+	children: PropTypes.node,
+	index: PropTypes.any.isRequired,
+	value: PropTypes.any.isRequired,
+};
 
-	handleBtnState = (e) => {
+function a11yProps(index) {
+	return {
+		id: `full-width-tab-${index}`,
+		'aria-controls': `full-width-tabpanel-${index}`,
+	};
+}
 
-		console.log(e.target.className)
-		let displayedElement = '';
-		if (e.target.className === 'hover') {
-			displayedElement = 'hover'
-			// this.setState({
-			// 	btnState: 'hover'
-			// })
-			//console.log(displayedElement)
-		} else if(e.target.className === 'normal') {
-			displayedElement = 'normal'
-			// this.setState({
-			// 	btnState: 'normal'
-			// })
-		}
-		console.log(displayedElement)
-		this.setState({
-				btnState: displayedElement
-			})
+	
+	const useStyles = makeStyles(theme => ({
+		root: {
+			flexGrow: 2,
+			backgroundColor: theme.palette.background.paper
+		  },
+		  tab: {
+			minWidth: 70,
+			maxWidthL: 130
+		  }
+
 		
-	}
-
-
-	handleChange = (dispatch, e) => {
-		e.preventDefault();
-
-		const property = e.target.name;
-		const value = e.target.value;
-		const selectedElement = this.props.selectedElement;
-		console.log(`from edit ${property}`)
-		console.log(`from edit ${value}`)
-		console.log(`from edit ${selectedElement}`)
-
-
-		dispatch({
-			type: selectedElement,//selectedElement 
-			payload: {
-				property,
-				value
-			}
-		})
-	}
-	render() {
-		let { displayedElement, btnState } = this.state;
-		return (
-			<Consumer>
-				{value => {
-					const { dispatch } = value;
-					const {
-						//bg styles
-						background,//boja bg colorpicker
-						border,//ima / nema 
-						borderThiknes,//border debljina input/slider
-						borderType,//select
-						borderColor,//colorpicker
-						borderRadius,//slider / input
-
-						//contentn i fonts sve kao kod txt forme
-						content,
-						fontSize,
-						fontType,
-						fontWeight,
-						color,
-						textTransform,
-						fontStyle,
-						textAlign,
-						textDecoration,
-
-						//box shadoww  
-						boxShadowColor, //colorpicker
-						//sve slider
-						boxShadowBlurRadius,
-						boxShadowSpreadRadius,
-						boxShadowHorizontal,
-						boxShadowVertical,
-					} = this.props.elementToEdit;
-					return (
-						<div className="formWrapper">
-							<div className="formWrapper-header">
-								<div onClick={this.handleChageGroup}
-									className="formWrapper-header_content"
-									style={{ backgroundColor: displayedElement === 'content' ? "rgb(58, 58, 58)" : " rgb(0, 0, 0)" }}>
-
-									<h4 className="content">Content</h4>
-
-								</div>
-								<div onClick={this.handleChageGroup}
-									className="formWrapper-header_style"
-									style={{ backgroundColor: displayedElement === 'style' ? "rgb(58, 58, 58)" : " rgb(0, 0, 0)" }}>
-										
-									<h4 className="style">Style</h4>
-
-								</div>
-								<div onClick={this.handleChageGroup}
-									className="formWrapper-header_advanced"
-									style={{ backgroundColor: displayedElement === 'advanced' ? "rgb(58, 58, 58)" : " rgb(0, 0, 0)" }}>
-
-									<h4 className="advanced" >Advanced</h4>
-								</div>
-							</div>
-
-							<div className="editOptions">
-								<div className="editOptions-form"
-									onSubmit={this.handleSubmit}>
-									<div className="editOptions-form_content"
-										style={{ display: displayedElement === 'content' ? "block" : "none" }}>
-										<FormTextAreaField
-											label='Content'
-											className='content-field'
-											name='content'
-											row='70'
-											cols='80'
-											value={content}
-											onChange={this.handleChange.bind(this, dispatch)}
-										/>
-									</div>
-
-									<div className="editOptions-form_style"
-										style={{ display: displayedElement === 'style' ? "block" : "none" }}>
-										<div className="editOptions-form_style-header">
-
-											<div className="normal"
-												onClick={this.handleBtnState.bind(btnState)}>
-												Normal
-											</div>
-
-											<div className="hover"
-												onClick={this.handleBtnState.bind(btnState)}>
-												hover
-											</div>
-
-										</div>
-
-										<div className="editOptions-form_style--normal"
-											style={{ display: btnState === 'normal' ? "block" : "none" }}>
-
-											{/* bg /border  */}
-											<FormInputField
-												className='style-field'
-												label="background Color"
-												type="color"
-												name='background'
-												onChange={this.handleChange.bind(this, dispatch)}
-											/>
-											<FormInputField
-												className='style-field'
-												label="Border Thiknes"
-												type="text"
-												name='borderThiknes'
-												value={borderThiknes}
-												onChange={this.handleChange.bind(this, dispatch)}
-											/>
-											<FormSelectField
-												className='style-field'
-												label='Border Type'
-												name='borderType'
-												onChange={this.handleChange.bind(this, dispatch)}
-												options={[
-													{ value: "solid", label: "solid" },
-													{ value: "dotted", label: "dotted" },
-													{ value: "dashed", label: "dashed" },
-													{ value: "double", label: "double" },
-													{ value: "groove", label: "groove" },
-													{ value: "ridge", label: "ridge" },
-													{ value: "inset", label: "inset" },
-													{ value: "outset", label: "outset" },
-													{ value: "none", label: "none" },
-													{ value: "hidden", label: "hidden" },
-												]} />
-
-											<FormInputField
-												className='style-field'
-												label="Border Color"
-												type="color"
-												name='borderColor'
-												value={borderColor}
-												onChange={this.handleChange.bind(this, dispatch)}
-											/>
-											<FormInputField
-												className='style-field'
-												label="Border Radius"
-												type="range"
-												name='borderRadius'
-												min="0"
-												max="200"
-												step='1'
-												value={borderRadius === '' ? 0 : borderRadius}
-												onChange={this.handleChange.bind(this, dispatch)}
-											/>
-											<p>{borderRadius === '' ? '0' : borderRadius}</p>
-
-
-											{/* fonts   */}
-											<FormInputField
-												className='style-field'
-												label="Font Size"
-												type="text"
-												name='fontSize'
-												value={fontSize}
-												onChange={this.handleChange.bind(this, dispatch)}
-											/>
-											<FormSelectField
-												className='style-field'
-												label='Font Weight'
-												name='fontWeight'
-												onChange={this.handleChange.bind(this, dispatch)}
-												options={[
-													{ value: "100", label: 100 },
-													{ value: "300", label: 300 },
-													{ value: "400", label: 400 },
-													{ value: "500", label: 500 },
-													{ value: "600", label: 600 },
-													{ value: "700", label: 700 },
-													{ value: "800", label: 800 },
-													{ value: "900", label: 900 },
-												]} />
-											<FormSelectField
-												className='style-field'
-												label='Text Transform'
-												name='textTransform'
-												onChange={this.handleChange.bind(this, dispatch)}
-												options={[
-													{ value: "default", label: "Default" },
-													{ value: "uppercase", label: "Uppercase" },
-													{ value: "lowercase", label: "Lowercase" },
-													{ value: "capitalize", label: "Capitalize" },
-													{ value: "none", label: "None" },
-												]} />
-
-											<FormSelectField
-												className='style-field'
-												label=' Font Style '
-												name='fontSize'
-												onChange={this.handleChange.bind(this, dispatch)}
-												options={[
-													{ value: "default", label: "Default" },
-													{ value: "normal", label: "Normal" },
-													{ value: "italic", label: "Italic" },
-													{ value: "oblique", label: "Oblique" },
-													{ value: "none", label: "None" },
-												]} />
-
-											<FormSelectField
-												className='style-field'
-												label='Text Decoration'
-												name='textDecoration'
-												onChange={this.handleChange.bind(this, dispatch)}
-												options={[
-													{ value: "default", label: "Default" },
-													{ value: "underline", label: "Underline" },
-													{ value: "overline", label: "Oveline" },
-													{ value: "line-through", label: "Line Throuth" },
-													{ value: "underline overline", label: "Underline Overline" },
-													{ value: "none", label: "None" },
-												]} />
-											<FormInputField
-												className='style-field'
-												label="Font Color"
-												type="color"
-												name='color'
-												onChange={this.handleChange.bind(this, dispatch)}
-											/>
-										</div>
-
-										<div className="editOptions-form_style--hover"
-											style={{ display: btnState === 'hover' ? "block" : "none" }}>
-												hover
-												
-
-										</div>
+	  }));
 
 
 
-									</div>
-								</div>
-							</div>
+const EditFormButton = () => {
+	const classes = useStyles();
+	const theme = useTheme();
+	const [value, setValue] = React.useState(0);
 
-							<div className="formWrapper-footer">
-								<div
-									onClick={this.handleViewChange}
-									className="formWrapper-footer_pc">
-									<Icon icon='fas fa-desktop' />
+	const handleChange = (event, newValue) => {
+		setValue(newValue);
+	};
 
-								</div>
-								<div
-									onClick={this.handleViewChange}
-									className="formWrapper-footer_tablet">
-									<Icon icon='fas fa-tablet-alt' />
-								</div>
-								<div
-									onClick={this.handleViewChange}
-									className="formWrapper-footer_phone">
-									<Icon icon='fas fa-mobile-alt' />
-								</div>
-							</div>
-						</div>
-					)
-				}}
-			</Consumer>
-		)
-	}
+	const handleChangeIndex = index => {
+		setValue(index);
+	};
+
+	return (
+		<div className={classes.root}>
+			<AppBar position="static" color="default">
+				<Tabs
+					className={classes.root}
+					value={value}
+					onChange={handleChange}
+					indicatorColor="primary"
+					textColor="primary"
+					variant="standard"
+					aria-label="full width tabs example"
+				>
+					<Tab className={classes.tab} label="Content" {...a11yProps(0)} />
+					<Tab className={classes.tab} label="Style" {...a11yProps(1)} />
+					<Tab className={classes.tab} label="Advanced" {...a11yProps(2)} />
+				</Tabs>
+			</AppBar>
+			<SwipeableViews
+				axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+				index={value}
+				onChangeIndex={handleChangeIndex}
+			>
+				<TabPanel value={value} index={0} dir={theme.direction}>
+					Item One
+        </TabPanel>
+				<TabPanel value={value} index={1} dir={theme.direction}>
+					Item Two
+        </TabPanel>
+				<TabPanel value={value} index={2} dir={theme.direction}>
+					Item Three
+        </TabPanel>
+			</SwipeableViews>
+		</div>
+	);
 }
 
 export default EditFormButton

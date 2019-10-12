@@ -1,7 +1,19 @@
+.test{
+  width: 100px;
+  color: green;
+  font-weight: bold;
+  font-size: 150px;
+}
+
+
 .formWrapper {
   height: 96vh;
   display: flex;
   flex-direction: column;
+  .width{
+    width: 300px;
+    color: orange;
+  }
 
   &-header {
     display: flex;
