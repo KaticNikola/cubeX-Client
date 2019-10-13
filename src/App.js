@@ -25,12 +25,14 @@ function App() {
           <Switch>
             <Route exact path='/' component={Homepage} />
             {/* <Route exact path='/live-edit' component={LiveEdit} /> */}
-            <Route exact path='/live-edit/template-edit' component={TemplateEdit} />
+            {/* <Route exact path='/live-edit/template-edit' component={TemplateEdit} /> */}
             {/* <Route exact path='/live-edit/test' component={Test} /> */}
             {/* <Route component={PageNotFound} /> */}
           </Switch>
         </div>
+        <Route exact path='/live-edit/template-edit' component={TemplateEdit} />
       </BrowserRouter>
+      
     </Provider>
 
 

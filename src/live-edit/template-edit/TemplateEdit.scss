@@ -1,10 +1,12 @@
 .templateEdit{
     display: flex;
+
     
     &-template{
         width: 80%;
     }
     &-edit{
         width: 20%;
+        border:  1px solid green($color: #d60000);
     }
 }

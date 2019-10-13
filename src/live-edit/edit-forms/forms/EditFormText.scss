@@ -1,19 +1,7 @@
-.test{
-  width: 100px;
-  color: green;
-  font-weight: bold;
-  font-size: 150px;
-}
-
-
 .formWrapper {
   height: 96vh;
   display: flex;
   flex-direction: column;
-  .width{
-    width: 300px;
-    color: orange;
-  }
 
   &-header {
     display: flex;
@@ -22,13 +10,18 @@
     color: rgb(146, 143, 143);
     flex: 0 1 auto;
 
+    //za sve forme
+
     &_content {
-      text-align: center;
-      width: 33.3%;
-      padding: 20px;
+      font-size: 16px;
+      font-weight: 500;
+      width: 33%;
+      background-color: rgb(0, 0, 0);
+      color: rgb(146, 143, 143);
+      border: none;
+      outline: none;
+      padding: 19px;
       cursor: pointer;
-      z-index:  4;
-      
 
       &:hover {
         background-color: rgb(58, 58, 58);
@@ -36,11 +29,15 @@
       }
     }
     &_style {
-      width: 33.3%;
-      padding: 20px;
+      font-size: 16px;
+      font-weight: 500;
+      width: 33%;
+      background-color: rgb(0, 0, 0);
+      color: rgb(146, 143, 143);
+      border: none;
+      outline: none;
+      padding: 19px;
       cursor: pointer;
-      // z-index:  4;
-      
 
       &:hover {
         background-color: rgb(58, 58, 58);
@@ -49,10 +46,15 @@
     }
 
     &_advanced {
-      width: 33.3%;
-      padding: 20px;
+      font-size: 16px;
+      font-weight: 500;
+      width: 33%;
+      background-color: rgb(0, 0, 0);
+      color: rgb(146, 143, 143);
+      border: none;
+      outline: none;
+      padding: 19px;
       cursor: pointer;
-      z-index:  4;
 
       &:hover {
         background-color: rgb(58, 58, 58);
@@ -62,13 +64,32 @@
   }
 
   .editOptions {
+    overflow-y: scroll;
     background-color: rgb(58, 58, 58);
     color: rgb(173, 173, 173);
     flex: 1 1 auto;
 
+    &::-webkit-scrollbar {
+      width: 10px;
+      background-color: rgb(190, 190, 190);
+    }
+    // &::-webkit-scrollbar-button{
+    //   background-color: rgb(0, 0, 0);
+    // }
+
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgb(0, 0, 0);
+      border-radius: 5px;
+     // outline: 1px solid rgb(0, 121, 241);
+    }
+
     &-form {
       &_content {
-        padding: 20px 50px;
+        padding: 15px 20px;
 
         .content-field {
           label {
@@ -77,6 +98,7 @@
           }
 
           textarea {
+            display: block;
             background-color: rgb(133, 133, 133);
             border: none;
             outline: none;
@@ -91,10 +113,11 @@
         }
       }
       &_style {
-        padding: 50px;
+        padding: 20px;
 
         //btn
         &-header {
+          padding: 10px;
           margin-top: -25px;
           display: flex;
           flex-direction: row;
@@ -111,11 +134,10 @@
             padding: 0px 20px;
             border-left: 1px solid rgb(0, 0, 0);
             border-bottom: 1px solid rgb(0, 0, 0);
-            
           }
         }
 
-        //all 
+        //all
         .style-field {
           label {
             font-size: 12px;
@@ -127,12 +149,12 @@
             font-size: 12px;
             border: none;
             outline: none;
-            padding: 0px 20px;
+            // padding: 0px 20px;
             background: transparent;
             color: rgb(255, 255, 255);
             width: 100%;
           }
-          input[type=text]{
+          input[type="text"] {
             background-color: rgb(133, 133, 133);
             // border: none;
             // outline: none;
@@ -146,17 +168,14 @@
             background-color: rgb(133, 133, 133);
             border: none;
             outline: none;
-            padding: 10px 30px;
+            padding: 0px 30px;
           }
         }
         //btn
-        &--normal{
-         
+        &--normal {
         }
-        &--hover{
-
+        &--hover {
         }
-
       }
 
       &_advanced {

@@ -17,36 +17,36 @@ import "./TemplateEdit.scss"
 
 export class TemplateEdit extends Component {
 
-    render() {
-        return (
-            <Consumer>
-                {value => {
-                    const { selectedElement, editMode } = value;
-                    if (editMode === 'on') {
-                        return (
-                            <div className='templateEdit'>
-                                <div className="templateEdit-template">
-                                    <HelthCareTemplate />
-                                </div>
-                                <div className="templateEdit-edit">
-                                    <FormPicker selectedElement={selectedElement} />
-                                     <EditModeControler/>
-                                </div>
-                            </div>
-                        )
-                    } else {
-                        return (
-                            <div className="templateEdit">
-                                <HelthCareTemplate />
-                                <EditModeControler/>
-                            </div>
-                        )
-                    }
-                }}
-            </Consumer>
+	render() {
+		return (
+			<Consumer>
+				{value => {
+					const { selectedElement, editMode } = value;
+					if (editMode === 'on') {
+						return (
+							<div className='templateEdit'>
+								<div className="templateEdit-template">
+									<HelthCareTemplate />
+								</div>
+								<div className="templateEdit-edit">
+									<FormPicker selectedElement={selectedElement} />
+									<EditModeControler />
+								</div>
+							</div>
+						)
+					} else {
+						return (
+							<div className="templateEdit">
+								<HelthCareTemplate />
+								<EditModeControler />
+							</div>
+						)
+					}
+				}}
+			</Consumer>
 
-        )
-    }
+		)
+	}
 }
 
 export default TemplateEdit
